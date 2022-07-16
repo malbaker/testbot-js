@@ -1,0 +1,5 @@
+{
+    "clientId": "<bot application id>",
+    "guildId": "<testing server id>",
+    "token": "insert bot token here"
+}
