@@ -9,9 +9,16 @@ module.exports = {
                 .setDescription('Number of messages to be deleted')
                 .setRequired(true)),
     async execute(interaction) {
+        const number = interaction.options.getInteger('number');
+        if (number <= 1) {
+            interaction.reply({ content: 'Must be more than 1 message', ephemeral:true });
+        }
+        if (number > 100) {
+            interaction.reply({ content: 'Cannot delete more than 100 messages', ephemeral:true });
+        }
         if (interaction.member.permissions.has('MANAGE_MESSAGES') && interaction.guild.me.permissions.has('MANAGE_MESSAGES')) {
-            await interaction.channel.bulkDelete(interaction.options.getInteger('number'));
-            await interaction.reply(`Deleted ${interaction.options.getInteger('number')} message(s) successfully.`);
+            await interaction.channel.bulkDelete(number);
+            await interaction.reply(`Deleted ${number} messages successfully.`);
             await setTimeout(() => interaction.deleteReply(), 3000);
         }
         else if (interaction.member.permissions.has('MANAGE_MESSAGES') === false) {
