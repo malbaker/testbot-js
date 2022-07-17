@@ -1,7 +1,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Intents, Collection } = require('discord.js');
-const { token } = require('./config.json');
+// const { token } = require('./config.json'); // TO BE USED WHEN RUNNING LOCALLY
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
