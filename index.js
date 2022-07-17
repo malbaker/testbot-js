@@ -21,15 +21,19 @@ for (const file of commandFiles) {
 // Array of random replies for when bot is mentioned //
 
 const replies =
-    ['What.', 'You know it\'s rude to ping right.',
-    'https://tenor.com/view/annoying-who-pinged-me-angry-gif-14512411',
-    'Can I help you?', 'Ping me one more time I swear to God....',
-    'IDK what you want, but you should know.... you\'re annoying',
-    'Pinging me won\'t help, I have actual functions you know',
-    'Yeah yeah, I\'m the best bot you\'ve seen. I know', 'Let me out!!!!'];
+    [
+        'What.', 'You know it\'s rude to ping right.',
+        'https://tenor.com/view/annoying-who-pinged-me-angry-gif-14512411',
+        'Can I help you?', 'Ping me one more time I swear to God....',
+        'IDK what you want, but you should know.... you\'re annoying',
+        'Pinging me won\'t help, I have actual functions you know',
+        'Yeah yeah, I\'m the best bot you\'ve seen. I know', 'Let me out!!!!',
+        'Computer Science at Boston University',
+        'https://tenor.com/view/angry-cat-busy-laptop-gif-15731367'
+    ];
 
 client.once('ready', () => {
-	console.log('It\'s alive!');
+    console.log('It\'s alive!');
 });
 
 
@@ -44,7 +48,7 @@ client.on('messageCreate', (message) => {
 });
 
 client.on('interactionCreate', async interaction => {
-	if (!interaction.isCommand()) return;
+    if (!interaction.isCommand()) return;
 
     const command = client.commands.get(interaction.commandName);
 
