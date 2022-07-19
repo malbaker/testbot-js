@@ -3,8 +3,7 @@ const path = require('node:path');
 const { Client, Intents, Collection } = require('discord.js');
 const replies = require('./utils/pingReplies');
 const statusMessages = require('./utils/statusMessages');
-// TO BE USED WHEN RUNNING LOCALLY
-// const { token } = require('./config.json');
+require('dotenv').config();
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
@@ -53,7 +52,5 @@ client.on('interactionCreate', async interaction => {
     }
 });
 
-// LOCAL RUN
-// client.login(token);
 
 client.login(process.env.TOKEN);
