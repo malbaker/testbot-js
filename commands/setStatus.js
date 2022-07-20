@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const staffRoles = ['752947013833850910', '997594139942191185'];
+const staffRoles = require('../utils/statusMessages');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('status')
