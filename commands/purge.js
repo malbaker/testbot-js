@@ -25,10 +25,8 @@ module.exports = {
                 { content:'You do not have the **Manage Messages** permission. Please ask a moderator to give you this permission.',
                 ephemeral: true });
         }
-
         await interaction.channel.bulkDelete(number);
         await interaction.reply(`Deleted ${number} messages successfully.`);
         await setTimeout(() => interaction.deleteReply(), 3000);
-
     },
 };
