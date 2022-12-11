@@ -21,7 +21,13 @@ module.exports = {
                 { content: 'You are not allowed to do this',
                 ephemeral:true });
         }
-        await interaction.client.user.setPresence({ activities: [{ name: `${status}`, type:'PLAYING' }], status:'online' });
-        await interaction.reply({ content:'Thanks', ephemeral:true });
+        
+        try {
+            await interaction.client.user.setPresence({ activities: [{ name: `${status}`, type:'PLAYING' }], status:'online' });
+            await interaction.reply({ content:'Thanks', ephemeral:true });
+        } catch (error) {
+            console.error(error);
+            await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+        }
     },
 };
