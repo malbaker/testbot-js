@@ -30,10 +30,11 @@ for (const file of commandFiles) {
 	}
 }
 // Sets custom status when bot runs, status rotates every 15 mins
-client.once(Events.ClientReady, (c) => {
+client.once(Events.ClientReady, async (c) => {
 	console.log(`It\'s alive! Logged in as ${c.user.tag}`);
-    setInterval(() => {
-        const newStatus = statusMessages[Math.floor(Math.random() * statusMessages.length)];
+	const status = felizNavidad[Math.floor(Math.random() * felizNavidad.length)];
+    await setInterval(() => {
+        // const newStatus = statusMessages[Math.floor(Math.random() * statusMessages.length)];
 		const felizStatus = felizNavidad[Math.floor(Math.random() * felizNavidad.length)];
         client.user.setPresence({ activities: [felizStatus], status: 'online' });
     }, 900000);
